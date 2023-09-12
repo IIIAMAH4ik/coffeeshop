@@ -34,6 +34,17 @@
     height: auto;
 }
 
+.product-details {
+    display: flex;
+    align-items: flex-start;
+}
+
+.description {
+    flex-grow: 1;
+    padding-left: 10px;
+    text-align: left;
+}
+
 .add-button {
     background-color: #4caf50;
     color: #fff;
