@@ -33,9 +33,11 @@
 }
 
 .product-left img {
-    max-width: 40%;
-    height: auto;
+    max-width: 100%; /* Максимальная ширина изображения равна ширине блока товара */
+    max-height: 200px; /* Максимальная высота изображения, например, 200px */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
 }
+
 
 .product-left .add-button {
     background-color: #4caf50;
