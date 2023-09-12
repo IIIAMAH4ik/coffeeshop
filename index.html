@@ -17,6 +17,9 @@
             padding: 10px;
             text-align: center;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .header-button {
@@ -32,22 +35,63 @@
             background-color: #6d4c41;
         }
 
+        .cart-button {
+            background-color: #8d6e63;
+            color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            margin: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-button:hover {
+            background-color: #6d4c41;
+        }
+
+        .material-icons {
+            font-size: 24px;
+        }
+
         .container {
             max-width: 390px;
             margin: 0 auto;
             padding: 20px;
         }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .button-column {
+            flex-basis: calc(50% - 10px);
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <button class="header-button">Кнопка 1</button>
-        <button class="header-button">Кнопка 2</button>
-        <button class="header-button">Кнопка 3</button>
-        <button class="header-button">Кнопка 4</button>
+        <div class="cart-button">
+            <span class="material-icons">shopping_cart</span>
+        </div>
+        <div class="button-container">
+            <div class="button-column">
+                <button class="header-button">Кнопка 1</button>
+                <button class="header-button">Кнопка 2</button>
+            </div>
+            <div class="button-column">
+                <button class="header-button">Кнопка 3</button>
+                <button class="header-button">Кнопка 4</button>
+            </div>
+        </div>
     </div>
     <div class="container">
         <!-- Здесь будет контент вашего магазина -->
     </div>
 </body>
 </html>
+
