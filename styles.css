@@ -2,7 +2,7 @@
     background-color: #8d6e63;
     color: #fff;
     padding: 15px 30px; /* Изменяем размер кнопки */
-    border-radius: 10px; /* Изменяем скругление углов */
+    border-radius: 5px; /* Изменяем скругление углов */
     margin: 10px;
     cursor: pointer;
     border: 2px solid #6d4c41; /* Добавляем рамку с определенными параметрами */
