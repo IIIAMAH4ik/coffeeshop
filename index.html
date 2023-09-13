@@ -6,6 +6,7 @@
     <title>Онлайн магазин</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
     <style>
         body {
             background-color: #f5f5f5;
@@ -13,7 +14,6 @@
             margin: 0;
             padding: 0;
         }
-
         .header {
             background-color: #795548;
             padding: 10px;
@@ -23,7 +23,6 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .header-button {
             background-color: #8d6e63;
             color: #fff;
@@ -32,11 +31,9 @@
             margin: 10px;
             cursor: pointer;
         }
-
         .header-button:hover {
             background-color: #6d4c41;
         }
-
         .cart-button {
             background-color: #8d6e63;
             color: #fff;
@@ -48,43 +45,31 @@
             align-items: center;
             justify-content: center;
         }
-
         .cart-button:hover {
             background-color: #6d4c41;
         }
-
         .material-icons {
             font-size: 24px;
         }
-
         .container {
             max-width: 390px;
             margin: 0 auto;
             padding: 20px;
         }
-
         .button-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
         }
-
         .button-column {
             flex-basis: calc(50% - 10px);
             text-align: center;
         }
-
         .layer {
             display: none;
         }
-
         .active-layer {
             display: block;
-        }
-
-        .add-button,
-        .remove-button {
-            display: none;
         }
     </style>
 </head>
@@ -118,11 +103,6 @@
                         <p>Цена: $10</p>
                     </div>
                     <button class="add-button">Добавить</button>
-                    <div class="add-to-cart">
-                        <button class="increment-button">+</button>
-                        <span class="quantity">0</span>
-                        <button class="decrement-button">-</button>
-                    </div>
                 </div>
                 <!-- Добавьте другие товары по аналогии -->
             </div>
@@ -141,11 +121,6 @@
                         <p>Цена: $10</p>
                     </div>
                     <button class="add-button">Добавить</button>
-                    <div class="add-to-cart">
-                        <button class="increment-button">+</button>
-                        <span class="quantity">0</span>
-                        <button class="decrement-button">-</button>
-                    </div>
                 </div>
                 <!-- Содержимое слоя 2 -->
             </div>
@@ -163,11 +138,6 @@
                         <p>Цена: $10</p>
                     </div>
                     <button class="add-button">Добавить</button>
-                    <div class="add-to-cart">
-                        <button class="increment-button">+</button>
-                        <span class="quantity">0</span>
-                        <button class="decrement-button">-</button>
-                    </div>
                 </div>
                 <!-- Содержимое слоя 3 -->
             </div>
@@ -185,11 +155,6 @@
                         <p>Цена: $10</p>
                     </div>
                     <button class="add-button">Добавить</button>
-                    <div class="add-to-cart">
-                        <button class="increment-button">+</button>
-                        <span class="quantity">0</span>
-                        <button class="decrement-button">-</button>
-                    </div>
                 </div>
                 <!-- Содержимое слоя 4 -->
             </div>
@@ -203,130 +168,12 @@
             layers.forEach(layer => {
                 layer.classList.remove('active-layer');
             });
-
             // Показать выбранный слой
             const selectedLayer = document.getElementById(layerId);
             if (selectedLayer) {
                 selectedLayer.classList.add('active-layer');
             }
         }
-
-        // Определение объекта корзины
-        const cart = {
-            items: [],
-            total: 0,
-        };
-
-        // Функция для добавления товара в корзину
-        function addToCart(productName, productPrice) {
-            const newItem = {
-                name: productName,
-                price: productPrice,
-                quantity: 1, // Начальное количество товара
-            };
-
-            // Проверка, есть ли уже такой товар в корзине
-            const existingItem = cart.items.find(item => item.name === productName);
-
-            if (existingItem) {
-                existingItem.quantity += 1; // Увеличить количество товара
-            } else {
-                cart.items.push(newItem);
-            }
-
-            cart.total += productPrice;
-            updateCartUI();
-        }
-
-        // Функция для удаления товара из корзины
-        function removeFromCart(productName, productPrice) {
-            const existingItemIndex = cart.items.findIndex(item => item.name === productName);
-
-            if (existingItemIndex !== -1) {
-                const existingItem = cart.items[existingItemIndex];
-
-                if (existingItem.quantity > 1) {
-                    existingItem.quantity -= 1; // Уменьшить количество товара
-                } else {
-                    cart.items.splice(existingItemIndex, 1); // Удалить товар из корзины
-                }
-
-                cart.total -= productPrice;
-                updateCartUI();
-            }
-        }
-
-        // Функция для обновления интерфейса корзины
-        function updateCartUI() {
-            const cartContainer = document.querySelector('.cart-container');
-            cartContainer.innerHTML = ''; // Очистить содержимое корзины
-
-            if (cart.items.length === 0) {
-                cartContainer.innerHTML = '<p>Корзина пуста.</p>';
-            } else {
-                cart.items.forEach(item => {
-                    const cartItem = document.createElement('div');
-                    cartItem.classList.add('cart-item');
-                    cartItem.innerHTML = `
-                        <p>${item.name}</p>
-                        <div class="quantity-container">
-                            <button class="remove-button" data-name="${item.name}" data-price="${item.price}">-</button>
-                            <span class="quantity">${item.quantity}</span>
-                            <button class="add-button" data-name="${item.name}" data-price="${item.price}">+</button>
-                        </div>
-                        <p>$${item.price * item.quantity}</p>
-                    `;
-
-                    cartContainer.appendChild(cartItem);
-                });
-
-                // Добавить общую стоимость
-                const totalPrice = document.createElement('p');
-                totalPrice.classList.add('total-price');
-                totalPrice.textContent = `Общая стоимость: $${cart.total}`;
-                cartContainer.appendChild(totalPrice);
-            }
-
-            // Отображаем кнопки "+" и "-" только для товаров в корзине
-            const addButtons = document.querySelectorAll('.add-button');
-            const removeButtons = document.querySelectorAll('.remove-button');
-            cart.items.forEach((item, index) => {
-                if (item.quantity > 0) {
-                    addButtons[index].style.display = 'inline-block';
-                    removeButtons[index].style.display = 'inline-block';
-                }
-            });
-        }
-
-        // Добавляем обработчики событий для кнопок "+" и "-"
-        document.addEventListener('click', (event) => {
-            if (event.target.classList.contains('add-button')) {
-                const productName = event.target.getAttribute('data-name');
-                const productPrice = parseFloat(event.target.getAttribute('data-price'));
-                addToCart(productName, productPrice);
-            } else if (event.target.classList.contains('remove-button')) {
-                const productName = event.target.getAttribute('data-name');
-                const productPrice = parseFloat(event.target.getAttribute('data-price'));
-                removeFromCart(productName, productPrice);
-            }
-        });
-
-        // Добавляем обработчик события для кнопки "Добавить"
-        const addToCartButtons = document.querySelectorAll('.add-button');
-        addToCartButtons.forEach((button, index) => {
-            button.addEventListener('click', () => {
-                button.style.display = 'none'; // Скрываем кнопку "Добавить"
-                const productName = button.parentElement.querySelector('.product-right h3').textContent;
-                const productPrice = parseFloat(button.parentElement.querySelector('.product-right p:last-child').textContent.slice(7));
-                addToCart(productName, productPrice);
-            });
-        });
     </script>
-    <div id="cart" class="layer">
-        <h2>Корзина</h2>
-        <div class="cart-container">
-            <!-- Сюда будут добавлены выбранные товары -->
-        </div>
-    </div>
 </body>
 </html>
