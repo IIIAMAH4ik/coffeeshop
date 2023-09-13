@@ -7,7 +7,6 @@
     cursor: pointer;
     border: 2px solid #6d4c41; /* Добавляем рамку с определенными параметрами */
 }
-
 .header-button:hover {
     background-color: #6d4c41;
     color: #fff;
@@ -17,7 +16,6 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
 .product {
     display: flex;
     border: 1px solid #ddd;
@@ -26,12 +24,10 @@
     border-radius: 5px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 .product-left {
     flex: 0 0 auto;
     padding: 10px;
 }
-
 .product-left img {
     width: 90px; /* Фиксированная ширина */
     height: 130px; /* Фиксированная высота */
@@ -51,30 +47,21 @@
     margin-top: 15px; /* Добавляем отступ сверху */
     margin-right: 10px;
 }
-
 .product-right {
     flex: 0 1 40%; /* Уменьшаем ширину блока */
     padding: 10px;
     display: flex;
     flex-direction: column;
 }
-
 .product-right h3 {
     font-size: 20px;
     margin-top: 0;
     order: 1;
 }
-
 .product-right p {
     font-size: 14px;
     order: 2;
 }
-
 .add-button:hover {
     background-color: #45a049;
-}
-.add-button,
-.remove-button,
-.quantity-container {
-    display: none;
 }
