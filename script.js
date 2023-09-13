@@ -13,6 +13,103 @@ function showLayer(layerId) {
         selectedLayer.classList.add('active-layer');
     }
 }
+// script.js
+
+// Определение объекта корзины
+const cart = {
+    items: [],
+    total: 0,
+};
+
+// Функция для добавления товара в корзину
+function addToCart(productName, productPrice) {
+    const newItem = {
+        name: productName,
+        price: productPrice,
+        quantity: 1, // Начальное количество товара
+    };
+    
+    // Проверка, есть ли уже такой товар в корзине
+    const existingItem = cart.items.find(item => item.name === productName);
+    
+    if (existingItem) {
+        existingItem.quantity += 1; // Увеличить количество товара
+    } else {
+        cart.items.push(newItem);
+    }
+    
+    cart.total += productPrice;
+    updateCartUI();
+}
+
+// Функция для удаления товара из корзины
+function removeFromCart(productName, productPrice) {
+    const existingItemIndex = cart.items.findIndex(item => item.name === productName);
+    
+    if (existingItemIndex !== -1) {
+        const existingItem = cart.items[existingItemIndex];
+        
+        if (existingItem.quantity > 1) {
+            existingItem.quantity -= 1; // Уменьшить количество товара
+        } else {
+            cart.items.splice(existingItemIndex, 1); // Удалить товар из корзины
+        }
+        
+        cart.total -= productPrice;
+        updateCartUI();
+    }
+}
+
+// Функция для обновления интерфейса корзины
+function updateCartUI() {
+    const cartContainer = document.querySelector('.cart-container');
+    cartContainer.innerHTML = ''; // Очистить содержимое корзины
+
+    if (cart.items.length === 0) {
+        cartContainer.innerHTML = '<p>Корзина пуста.</p>';
+    } else {
+        cart.items.forEach(item => {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <p>${item.name}</p>
+                <div>
+                    <button class="remove-button" data-name="${item.name}" data-price="${item.price}">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="add-button" data-name="${item.name}" data-price="${item.price}">+</button>
+                </div>
+                <p>$${item.price * item.quantity}</p>
+            `;
+            cartContainer.appendChild(cartItem);
+        });
+
+        // Добавить общую стоимость
+        const totalPrice = document.createElement('p');
+        totalPrice.classList.add('total-price');
+        totalPrice.textContent = `Общая стоимость: $${cart.total}`;
+        cartContainer.appendChild(totalPrice);
+
+        // Добавить обработчики событий для кнопок "+", "-"
+        const addButtons = document.querySelectorAll('.add-button');
+        addButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.getAttribute('data-name');
+                const productPrice = parseFloat(button.getAttribute('data-price'));
+                addToCart(productName, productPrice);
+            });
+        });
+
+        const removeButtons = document.querySelectorAll('.remove-button');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productName = button.getAttribute('data-name');
+                const productPrice = parseFloat(button.getAttribute('data-price'));
+                removeFromCart(productName, productPrice);
+            });
+        });
+    }
+}
+
 // Ваш JavaScript-код
 
 document.querySelectorAll('.add-button').forEach(button => {
@@ -87,3 +184,5 @@ document.querySelectorAll('.decrement-button').forEach(button => {
         }
     });
 });
+
+// Добавьте обработчики событий для кнопок "-" и "+" в корзине, если нужно
