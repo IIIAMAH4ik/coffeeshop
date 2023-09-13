@@ -33,14 +33,14 @@
 }
 
 .product-left img {
-    width: 70px; /* Фиксированная ширина */
-    height: 150px; /* Фиксированная высота */
+    width: 90px; /* Фиксированная ширина */
+    height: 130px; /* Фиксированная высота */
 }
 
 .add-button {
     background-color: #4caf50;
     color: #fff;
-    width: 80px; /* Измените на желаемую ширину */
+    width: 70px; /* Измените на желаемую ширину */
     height: 140px; /* Измените на желаемую высоту */
      padding: 12px 5px 13px 5px; /* Отступы: верх, право, низ, лево */
     border: none;
