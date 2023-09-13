@@ -59,14 +59,14 @@
 }
 
 .product-right h3 {
-    font-size: 14px;
-    order: 2;
-}
-
-.product-right p {
     font-size: 20px;
     margin-top: 0;
     order: 1;
+}
+
+.product-right p {
+    font-size: 14px;
+    order: 2;
 }
 
 .add-button:hover {
