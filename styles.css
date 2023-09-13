@@ -47,6 +47,7 @@
     border-radius: 5px;
     cursor: pointer;
     order: 3;
+    margin-top: 10px; /* Добавляем отступ сверху */
 }
 
 .product-right {
