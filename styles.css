@@ -50,8 +50,9 @@
 }
 
 .product-right {
-    flex: 1 1 auto;
+    flex: 0 1 40%; /* Уменьшаем ширину блока */
     padding: 10px;
+    display: flex;
     flex-direction: column;
 }
 
