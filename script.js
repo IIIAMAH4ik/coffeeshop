@@ -13,7 +13,6 @@ function showLayer(layerId) {
         selectedLayer.classList.add('active-layer');
     }
 }
-// script.js
 // Определение объекта корзины
 const cart = {
     items: [],
@@ -72,25 +71,19 @@ function updateCartUI() {
             cartItem.classList.add('cart-item');
             cartItem.innerHTML = `
                 <p>${item.name}</p>
-                <div>
+                <div class="quantity-container">
                     <button class="remove-button" data-name="${item.name}" data-price="${item.price}">-</button>
-                    <span>${item.quantity}</span>
+                    <span class="quantity">${item.quantity}</span>
                     <button class="add-button" data-name="${item.name}" data-price="${item.price}">+</button>
                 </div>
                 <p>$${item.price * item.quantity}</p>
             `;
 
-            // Добавьте обработчики событий для кнопок "+" и "-"
+            // Скрываем кнопки "+" и "-" по умолчанию
             const addButton = cartItem.querySelector('.add-button');
             const removeButton = cartItem.querySelector('.remove-button');
-
-            addButton.addEventListener('click', () => {
-                addToCart(item.name, item.price);
-            });
-
-            removeButton.addEventListener('click', () => {
-                removeFromCart(item.name, item.price);
-            });
+            addButton.style.display = 'none';
+            removeButton.style.display = 'none';
 
             cartContainer.appendChild(cartItem);
         });
@@ -102,3 +95,16 @@ function updateCartUI() {
         cartContainer.appendChild(totalPrice);
     }
 }
+
+// Добавляем обработчики событий для кнопок "+" и "-"
+document.addEventListener('click', (event) => {
+    if (event.target.classList.contains('add-button')) {
+        const productName = event.target.getAttribute('data-name');
+        const productPrice = parseFloat(event.target.getAttribute('data-price'));
+        addToCart(productName, productPrice);
+    } else if (event.target.classList.contains('remove-button')) {
+        const productName = event.target.getAttribute('data-name');
+        const productPrice = parseFloat(event.target.getAttribute('data-price'));
+        removeFromCart(productName, productPrice);
+    }
+});
