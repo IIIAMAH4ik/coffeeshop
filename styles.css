@@ -59,13 +59,13 @@
 }
 
 .product-right h3 {
-    font-size: 20px;
-    margin-top: 0;
+    font-size: 14px;
     order: 2;
 }
 
 .product-right p {
-    font-size: 14px;
+    font-size: 20px;
+    margin-top: 0;
     order: 1;
 }
 
