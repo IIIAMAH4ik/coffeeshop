@@ -46,20 +46,24 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    order: 3;
 }
 
 .product-right {
     flex: 1 1 auto;
     padding: 10px;
+    flex-direction: column;
 }
 
 .product-right h3 {
     font-size: 20px;
     margin-top: 0;
+    order: 2;
 }
 
 .product-right p {
     font-size: 14px;
+    order: 1;
 }
 
 .add-button:hover {
