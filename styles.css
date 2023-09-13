@@ -38,10 +38,11 @@
     height: auto; /* Автоматическая высота для сохранения пропорций */
 }
 
-
-.product-left .add-button {
+.add-button {
     background-color: #4caf50;
     color: #fff;
+    width: 150px; /* Измените на желаемую ширину */
+    height: 40px; /* Измените на желаемую высоту */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
