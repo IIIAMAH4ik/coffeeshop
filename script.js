@@ -19,6 +19,9 @@ const cart = {
     total: 0,
 };
 
+// JavaScript-код
+// ... (ваш JavaScript-код) ...
+
 // Функция для добавления товара в корзину
 function addToCart(productName, productPrice) {
     const newItem = {
@@ -79,12 +82,6 @@ function updateCartUI() {
                 <p>$${item.price * item.quantity}</p>
             `;
 
-            // Скрываем кнопки "+" и "-" по умолчанию
-            const addButton = cartItem.querySelector('.add-button');
-            const removeButton = cartItem.querySelector('.remove-button');
-            addButton.style.display = 'none';
-            removeButton.style.display = 'none';
-
             cartContainer.appendChild(cartItem);
         });
 
@@ -94,7 +91,19 @@ function updateCartUI() {
         totalPrice.textContent = `Общая стоимость: $${cart.total}`;
         cartContainer.appendChild(totalPrice);
     }
+
+    // Отображаем кнопки "+" и "-" только для товаров в корзине
+    const addButtons = document.querySelectorAll('.add-button');
+    const removeButtons = document.querySelectorAll('.remove-button');
+    cart.items.forEach((item, index) => {
+        if (item.quantity > 0) {
+            addButtons[index].style.display = 'inline-block';
+            removeButtons[index].style.display = 'inline-block';
+        }
+    });
 }
+
+// ... (ваш JavaScript-код) ...
 
 // Добавляем обработчики событий для кнопок "+" и "-"
 document.addEventListener('click', (event) => {
