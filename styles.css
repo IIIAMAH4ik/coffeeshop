@@ -73,3 +73,8 @@
 .add-button:hover {
     background-color: #45a049;
 }
+.add-button,
+.remove-button,
+.quantity-container {
+    display: none;
+}
