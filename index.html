@@ -113,7 +113,7 @@
                         <p>Описание товара</p>
                         <p>Цена: $10</p>
                     </div>
-                    <button class="add-button">Добавить</button>
+                    <button class="add-button" onclick="addToCart('Название товара', 10)">Добавить</button>
                 </div>
                 <!-- Добавьте другие товары по аналогии -->
             </div>
@@ -131,7 +131,7 @@
                         <p>Описание товара</p>
                         <p>Цена: $10</p>
                     </div>
-                    <button class="add-button">Добавить</button>
+                    <button class="add-button" onclick="addToCart('Название товара', 10)">Добавить</button>
                 </div>
                 <!-- Содержимое слоя 2 -->
             </div>
@@ -148,7 +148,7 @@
                         <p>Описание товара</p>
                         <p>Цена: $10</p>
                     </div>
-                    <button class="add-button">Добавить</button>
+                    <button class="add-button" onclick="addToCart('Название товара', 10)">Добавить</button>
                 </div>
                 <!-- Содержимое слоя 3 -->
             </div>
@@ -165,7 +165,7 @@
                         <p>Описание товара</p>
                         <p>Цена: $10</p>
                     </div>
-                    <button class="add-button">Добавить</button>
+                    <button class="add-button" onclick="addToCart('Название товара', 10)">Добавить</button>
                 </div>
                 <!-- Содержимое слоя 4 -->
             </div>
@@ -187,5 +187,11 @@
             }
         }
     </script>
+    <div id="cart" class="layer">
+        <h2>Корзина</h2>
+        <div class="cart-container">
+            <!-- Сюда будут добавлены выбранные товары -->
+        </div>
+    </div>
 </body>
 </html>
