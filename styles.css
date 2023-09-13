@@ -35,7 +35,7 @@
 .product-left img {
     width: 90px; /* Фиксированная ширина */
     height: 130px; /* Фиксированная высота */
-    margin-top: 21px; /* Добавляем отступ сверху */
+    margin-top: 16px; /* Добавляем отступ сверху */
 }
 
 .add-button {
