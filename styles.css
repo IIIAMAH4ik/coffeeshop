@@ -42,12 +42,12 @@
     color: #fff;
     width: 70px; /* Измените на желаемую ширину */
     height: 140px; /* Измените на желаемую высоту */
-     padding: 12px 5px 13px 5px; /* Отступы: верх, право, низ, лево */
+    padding: 12px 5px 13px 5px; /* Отступы: верх, право, низ, лево */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     order: 3;
-    margin-top: 12px; /* Добавляем отступ сверху */
+    margin-top: 15px; /* Добавляем отступ сверху */
     margin-right: 10px;
 }
 
