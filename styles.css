@@ -42,7 +42,7 @@
     color: #fff;
     width: 70px; /* Измените на желаемую ширину */
     height: 150px; /* Измените на желаемую высоту */
-    padding: 10px 5px;
+     padding: 12px 5px 13px 5px; /* Отступы: верх, право, низ, лево */
     border: none;
     border-radius: 5px;
     cursor: pointer;
