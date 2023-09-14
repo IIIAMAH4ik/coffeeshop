@@ -75,7 +75,7 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: -40px;
+    margin: -40px 0;
     font-size: 24px; /* Увеличиваем размер шрифта */
     order: 4; /* Сделать кнопку "+" первой по порядку */
 }
