@@ -18,13 +18,14 @@ function showOptions(button) {
     const product = button.closest('.product');
 
     // Находим все кнопки внутри контейнера
+    const addButton = product.querySelector('.add-button');
     const optionButton1 = product.querySelector('.option-button1');
     const optionButton2 = product.querySelector('.option-button2');
 
     // Скрываем кнопку "Добавить"
-    optionButton1.style.display = 'none';
+    addButton.style.display = 'none';
 
     // Показываем кнопки опций
+    optionButton1.style.display = 'inline-block';
     optionButton2.style.display = 'inline-block';
-    optionButton3.style.display = 'inline-block';
 }
