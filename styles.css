@@ -76,7 +76,7 @@
     border-radius: 5px;
     cursor: pointer;
     margin: 5px;
-    font-size: 5px; /* Увеличиваем размер шрифта */
+    font-size: 15px; /* Увеличиваем размер шрифта */
     order: 5; /* Сделать кнопку "+" первой по порядку */
     margin-top: 97px;
     display: flex; /* Используем flex-контейнер */
@@ -95,7 +95,7 @@
     border-radius: 5px;
     cursor: pointer;
     margin: 5px;
-    font-size: 5px; /* Увеличиваем размер шрифта */
+    font-size: 15px; /* Увеличиваем размер шрифта */
     order: 4; /* Сделать кнопку "-" второй по порядку */
     margin-top: 97px;
     margin-right: 5px;
