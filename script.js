@@ -64,25 +64,21 @@ function showOptions(button) {
 
     // Показываем или скрываем кнопки "+-" в зависимости от значения itemCount
     const addButton = product.querySelector('.add-button');
+    const cartButton = product.querySelector('.cart-button');
 
     if (itemCount === 0) {
         addButton.style.display = 'inline-block';
         optionButton1.style.display = 'none';
         optionButton2.style.display = 'none';
+        cartButton.style.display = 'none'; // Скрываем корзину, если товаров нет
     } else {
         addButton.style.display = 'none';
         optionButton1.style.display = 'inline-block';
         optionButton2.style.display = 'inline-block';
+        cartButton.style.display = 'block'; // Показываем корзину, если есть товары
     }
 
     // Обновляем количество товаров в корзине и отображаем его в корзине
     cartItemCount = itemCount;
     updateCartCount();
-
-    // Добавляем проверку, чтобы обработчик событий на кнопке "Добавить" не выполнялся, если количество товаров больше 0
-    if (cartItemCount === 0) {
-        addButton.onclick = () => showOptions(addButton);
-    } else {
-        addButton.onclick = null;
-    }
 }
