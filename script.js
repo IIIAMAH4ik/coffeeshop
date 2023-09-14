@@ -1,4 +1,3 @@
-// script.js
 function showLayer(layerId) {
     // Скрыть все слои
     const layers = document.querySelectorAll('.layer');
@@ -11,19 +10,29 @@ function showLayer(layerId) {
         selectedLayer.classList.add('active-layer');
     }
 }
+
 function showOptions(button) {
     // Находим родительский элемент (контейнер товара)
     const product = button.closest('.product');
-
     // Находим все кнопки внутри контейнера
     const addButton = product.querySelector('.add-button');
     const optionButton1 = product.querySelector('.option-button1');
     const optionButton2 = product.querySelector('.option-button2');
 
-    // Скрываем кнопку "Добавить"
-    addButton.style.display = 'none';
+    // Находим элемент, который будет отображать количество товаров в корзине
+    const itemCountElement = product.querySelector('.item-count');
 
-    // Показываем кнопки опций
-    optionButton1.style.display = 'inline-block';
-    optionButton2.style.display = 'inline-block';
+    // Получаем текущее количество товаров
+    let itemCount = parseInt(itemCountElement.textContent);
+
+    if (button === optionButton1) {
+        // Если нажата кнопка "-", уменьшаем количество товаров (не меньше 0)
+        itemCount = Math.max(itemCount - 1, 0);
+    } else if (button === optionButton2) {
+        // Если нажата кнопка "+", увеличиваем количество товаров
+        itemCount += 1;
+    }
+
+    // Обновляем отображение количества товаров
+    itemCountElement.textContent = itemCount;
 }
