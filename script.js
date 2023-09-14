@@ -4,17 +4,21 @@ function showLayer(layerId) {
     layers.forEach(layer => {
         layer.classList.remove('active-layer');
     });
+
     // Показать выбранный слой
     const selectedLayer = document.getElementById(layerId);
     if (selectedLayer) {
         selectedLayer.classList.add('active-layer');
     }
 }
+
 function showOptions(button) {
     // Находим родительский элемент (контейнер товара)
     const product = button.closest('.product');
+
     // Находим элемент, который будет отображать количество товаров в корзине
     const itemCountElement = product.querySelector('.item-count');
+
     // Получаем текущее количество товаров
     let itemCount = parseInt(itemCountElement.textContent);
 
@@ -29,12 +33,13 @@ function showOptions(button) {
         // Если нажата кнопка "+", увеличиваем количество товаров
         itemCount += 1;
     }
+
     // Обновляем отображение количества товаров
     itemCountElement.textContent = itemCount;
 
     // Показываем или скрываем кнопки "+-" в зависимости от значения itemCount
     const addButton = product.querySelector('.add-button');
-
+    
     if (itemCount === 0) {
         addButton.style.display = 'inline-block';
         optionButton1.style.display = 'none';
