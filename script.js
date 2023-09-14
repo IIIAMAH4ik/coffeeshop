@@ -11,7 +11,32 @@ function showLayer(layerId) {
         selectedLayer.classList.add('active-layer');
     }
 }
+// Переменная для отслеживания количества товаров в корзине
+let cartItemCount = 0;
 
+// Функция для отображения и скрытия корзины при нажатии на корзину
+function toggleCart() {
+    const cartLayer = document.querySelector('.cart-layer');
+    cartLayer.classList.toggle('active-layer');
+}
+
+// Функция для обновления отображения количества товаров в корзине и корзины
+function updateCartCount() {
+    const cartCountElement = document.querySelector('.cart-button .item-count');
+
+    // Обновляем отображение количества товаров в корзине
+    cartCountElement.textContent = cartItemCount;
+
+    // Показываем или скрываем корзину в зависимости от количества товаров
+    const cartLayer = document.querySelector('.cart-layer');
+    if (cartItemCount > 0) {
+        cartLayer.classList.add('active-layer');
+    } else {
+        cartLayer.classList.remove('active-layer');
+    }
+}
+
+// Функция для изменения количества товаров и отображения кнопок "+-"
 function showOptions(button) {
     // Находим родительский элемент (контейнер товара)
     const product = button.closest('.product');
@@ -39,7 +64,7 @@ function showOptions(button) {
 
     // Показываем или скрываем кнопки "+-" в зависимости от значения itemCount
     const addButton = product.querySelector('.add-button');
-    
+
     if (itemCount === 0) {
         addButton.style.display = 'inline-block';
         optionButton1.style.display = 'none';
@@ -49,4 +74,8 @@ function showOptions(button) {
         optionButton1.style.display = 'inline-block';
         optionButton2.style.display = 'inline-block';
     }
+
+    // Обновляем количество товаров в корзине и отображаем его в корзине
+    cartItemCount = itemCount;
+    updateCartCount();
 }
