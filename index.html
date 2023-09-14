@@ -85,8 +85,12 @@
                 <button class="header-button" onclick="showLayer('layer4')">Ланчи</button>
             </div>
         </div>
-        <div class="cart-button">
+        <div class="cart-button" onclick="toggleCart()">
             <span class="material-icons">shopping_cart</span>
+            <span class="item-count">0</span>
+        </div>
+        <div class="cart-layer"> <!-- Этот блок будет отображаться при нажатии на корзину -->
+            <!-- Сюда добавьте отображение выбранных товаров в корзине -->
         </div>
     </div>
     <div class="container">
