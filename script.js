@@ -17,21 +17,13 @@ function showOptions(button) {
     // Находим родительский элемент (контейнер товара)
     const product = button.closest('.product');
 
-    // Находим контейнер кнопок
-    const buttonsContainer = product.querySelector('.buttons-container');
+    // Находим все кнопки внутри контейнера
+    const buttons = product.querySelectorAll('.add-button, .option-button');
 
-    // Удаляем кнопку "Добавить"
-    buttonsContainer.removeChild(button);
+    // Скрываем кнопку "Добавить"
+    buttons[0].style.display = 'none';
 
-    // Создаем и добавляем две кнопки опций
-    const optionButton1 = document.createElement('button');
-    optionButton1.className = 'option-button';
-    optionButton1.textContent = 'Опция 1';
-
-    const optionButton2 = document.createElement('button');
-    optionButton2.className = 'option-button';
-    optionButton2.textContent = 'Опция 2';
-
-    buttonsContainer.appendChild(optionButton1);
-    buttonsContainer.appendChild(optionButton2);
+    // Показываем кнопки опций
+    buttons[1].style.display = 'inline-block';
+    buttons[2].style.display = 'inline-block';
 }
