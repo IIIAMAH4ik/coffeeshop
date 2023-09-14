@@ -26,7 +26,10 @@ function showOptions(button) {
         // Если нажата кнопка "-", уменьшаем количество товаров (но не меньше 0)
         itemCount = Math.max(itemCount - 1, 0);
     } else if (button === optionButton2) {
-	@@ -47,9 +38,15 @@ function showOptions(button) {
+        // Если нажата кнопка "+", увеличиваем количество товаров
+        itemCount += 1;
+    }
+    // Обновляем отображение количества товаров
     itemCountElement.textContent = itemCount;
 
     // Показываем или скрываем кнопки "+-" в зависимости от значения itemCount
