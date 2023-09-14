@@ -23,6 +23,8 @@
     margin-bottom: 20px;
     border-radius: 5px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    width: 379px; /* Устанавливаем ширину */
+    height: 173px; /* Устанавливаем высоту */
 }
 .product-left {
     flex: 0 0 auto;
