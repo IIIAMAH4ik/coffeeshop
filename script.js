@@ -11,6 +11,15 @@ function showLayer(layerId) {
         selectedLayer.classList.add('active-layer');
     }
 }
+// Переменная для отслеживания количества товаров в корзине
+let cartItemCount = 0;
+
+// Функция для отображения и скрытия корзины при нажатии на корзину
+function toggleCart() {
+    const cartLayer = document.querySelector('.cart-layer');
+    cartLayer.classList.toggle('active-layer');
+}
+
 // Функция для обновления отображения количества товаров в корзине и корзины
 function updateCartCount() {
     const cartCountElement = document.querySelector('.cart-button .item-count');
@@ -66,17 +75,14 @@ function showOptions(button) {
         optionButton2.style.display = 'inline-block';
     }
 
-// Переменная для отслеживания количества товаров в корзине
-let cartItemCount = 0;
-
-// Функция для отображения и скрытия корзины при нажатии на корзину
-function toggleCart() {
-    const cartLayer = document.querySelector('.cart-layer');
-    cartLayer.classList.toggle('active-layer');
-}
-
-
     // Обновляем количество товаров в корзине и отображаем его в корзине
     cartItemCount = itemCount;
     updateCartCount();
+
+    // Добавляем проверку, чтобы обработчик событий на кнопке "Добавить" не выполнялся, если количество товаров больше 0
+    if (cartItemCount === 0) {
+        addButton.onclick = () => showOptions(addButton);
+    } else {
+        addButton.onclick = null;
+    }
 }
