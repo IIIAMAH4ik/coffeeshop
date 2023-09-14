@@ -53,4 +53,3 @@ function showOptions(button) {
         optionButton2.style.display = 'none';
     }
 }
-
