@@ -1,4 +1,4 @@
-.header-button {
+ .header-button {
     background-color: #8d6e63;
     color: #fff;
     padding: 15px 30px; /* Изменяем размер кнопки */
@@ -34,7 +34,6 @@
     width: 90px; /* Фиксированная ширина */
     height: 130px; /* Фиксированная высота */
     margin-top: 12px; /* Добавляем отступ сверху */
-    border-radius: 5px;
 }
 
 .add-button {
