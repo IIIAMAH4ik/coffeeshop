@@ -90,10 +90,9 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin: 5px;
+    margin: 0px;
     font-size: 24px; /* Увеличиваем размер шрифта */
     order: 5; /* Сделать кнопку "-" второй по порядку */
     margin-top: 80px; /* Добавляем верхний отступ для выравнивания */
-    margin-right: 60px;
 }
 
