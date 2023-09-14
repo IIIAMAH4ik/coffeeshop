@@ -65,3 +65,14 @@
 .add-button:hover {
     background-color: #45a049;
 }
+/* CSS для верхней кнопки опции */
+.option-button:nth-child(2) {
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: #fff; /* Белый цвет текста */
+}
+
+/* CSS для нижней кнопки опции */
+.option-button:nth-child(3) {
+    background-color: #FF0000; /* Красный цвет */
+    color: #fff; /* Белый цвет текста */
+}
