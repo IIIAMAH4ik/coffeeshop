@@ -1,5 +1,5 @@
 function showLayer(layerId) {
-    // Скрыть все слои 2
+    // Скрыть все слои
     const layers = document.querySelectorAll('.layer');
     layers.forEach(layer => {
         layer.classList.remove('active-layer');
