@@ -67,7 +67,7 @@
 }
 /* Стили для кнопки "+" */
 .product .option-button1 {
-    background-color: #4CAF50; /* Зеленый цвет */
+    background-color: #FF0000; /* Зеленый цвет */
     color: #fff; /* Белый цвет текста */
     width: 70px;
     height: 50px;
@@ -83,7 +83,7 @@
 
 /* Стили для кнопки "-" */
 .product .option-button2 {
-    background-color: #FF0000; /* Красный цвет */
+    background-color: #4CAF50; /* Красный цвет */
     color: #fff; /* Белый цвет текста */
     width: 70px;
     height: 50px;
