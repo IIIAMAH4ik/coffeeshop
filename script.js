@@ -16,16 +16,16 @@ function showOptions(button) {
     // Находим родительский элемент (контейнер товара)
     const product = button.closest('.product');
 
-    // Находим кнопки внутри контейнера
-    const addButton = product.querySelector('.add-button');
-    const optionButton1 = product.querySelector('.option-button1');
-    const optionButton2 = product.querySelector('.option-button2');
-
     // Находим элемент, который будет отображать количество товаров в корзине
     const itemCountElement = product.querySelector('.item-count');
 
     // Получаем текущее количество товаров
     let itemCount = parseInt(itemCountElement.textContent);
+
+    // Находим кнопки "+" и "-"
+    const addButton = product.querySelector('.add-button');
+    const optionButton1 = product.querySelector('.option-button1');
+    const optionButton2 = product.querySelector('.option-button2');
 
     if (button === addButton) {
         // Если нажата кнопка "Добавить", увеличиваем количество товаров на 1
@@ -35,7 +35,7 @@ function showOptions(button) {
         addButton.style.display = 'none';
         optionButton1.style.display = 'inline-block';
         optionButton2.style.display = 'inline-block';
-    } else if (button === optionButton1) {
+    } else if (button === optionButton1 && itemCount > 0) {
         // Если нажата кнопка "-", уменьшаем количество товаров (но не меньше 0)
         itemCount = Math.max(itemCount - 1, 0);
     } else if (button === optionButton2) {
@@ -53,3 +53,4 @@ function showOptions(button) {
         optionButton2.style.display = 'none';
     }
 }
+
