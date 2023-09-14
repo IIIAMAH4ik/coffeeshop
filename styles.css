@@ -66,14 +66,17 @@
     background-color: #45a049;
 }
 /* CSS для верхней кнопки опции */
-.product .option-button:nth-child(2) {
-    background-color: #4CAF50 !important; /* Зеленый цвет */
-    color: #fff !important; /* Белый цвет текста */
-}
-
-/* CSS для нижней кнопки опции */
-.product .option-button:nth-child(3) {
-    background-color: #FF0000 !important; /* Красный цвет */
-    color: #fff !important; /* Белый цвет текста */
+/* Стили для кнопок "+" и "-" */
+.product .option-button {
+    background-color: #4CAF50; /* Зеленый цвет */
+    color: #fff; /* Белый цвет текста */
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 24px; /* Увеличиваем размер шрифта */
 }
 
